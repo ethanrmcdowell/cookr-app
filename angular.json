@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -84,10 +85,28 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "cookr-app:build:production",
+              "serveTarget": "cookr-app:serve:production"
+            },
+            "development": {
+              "buildTarget": "cookr-app:build:development",
+              "serveTarget": "cookr-app:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

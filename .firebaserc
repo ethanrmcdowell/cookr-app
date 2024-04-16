@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "cookr-app": {
+      "hosting": {
+        "cookr-app": [
+          "cookr-app"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "cookr-app"
+  }
+}
