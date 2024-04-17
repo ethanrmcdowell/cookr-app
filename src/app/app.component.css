@@ -1,0 +1,37 @@
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #A34343;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+button {
+    margin-left: 10px;
+}
+
+.callSection {
+    width: 100%;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        justify-content: center;
+        align-items: center;
+        margin: 50px auto;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: center;
+    }
+}
