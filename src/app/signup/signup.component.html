@@ -1,1 +1,20 @@
-<p>signup works!</p>
+<section class="signup-call">
+    <h1>Welcome back to Cookr.</h1>
+    <p>Login to view and edit all of your recipes, or create a brand new one!</p>
+</section>
+
+<section class="signup-container" [formGroup]="newUserForm">
+    <mat-form-field>
+        <mat-label>E-mail</mat-label>
+        <input matInput type="email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Repeat Password</mat-label>
+        <input matInput type="password" formControlName="password2">
+    </mat-form-field>
+    <button mat-raised-button (click)="signupUser()" [disabled]="!this.newUserForm.valid">submit</button>
+</section>
