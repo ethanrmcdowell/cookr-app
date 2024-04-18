@@ -20,12 +20,37 @@ button {
     margin-top: 10px;
 }
 
+.logged-in-buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+
+    button {
+        margin-left: 25px;
+    }
+}
+
+.header-buttons {
+    margin-top: 25px;
+}
+
+.user-profile {
+    cursor: pointer;
+    &:hover {
+        color: #8B322C;
+    }
+}
+
 .body-buttons {
     display: none;
 }
 
 @media all and (max-width: 1667px) {
     .header-buttons {
+        display: none;
+    }
+
+    .logged-in-buttons {
         display: none;
     }
 

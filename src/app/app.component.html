@@ -5,10 +5,17 @@
     </a>
   </span>
   <span></span>
-  <span class="header-buttons">
-    <button mat-raised-button (click)="loginButton()">Login</button>
-    <button mat-raised-button (click)="signUpButton()">Sign Up</button>
-  </span>
+  @if (!this.userAuthenticated) {
+    <span class="header-buttons">
+      <button mat-raised-button (click)="loginButton()">Login</button>
+      <button mat-raised-button (click)="signUpButton()">Sign Up</button>
+    </span>
+  } @else {
+    <span class="logged-in-buttons">
+      <p class="user-profile" (click)="navUserProfile()">{{this.user.email}}</p>
+      <button mat-raised-button (click)="logoutUser()">Logout</button>
+    </span>
+  }
 </mat-toolbar>
 
 
