@@ -1,8 +1,20 @@
-<div style="padding: 20px;">
-    <p>email</p>
-    <input type="email" [(ngModel)]="email">
-    <p>password</p>
-    <input type="password" [(ngModel)]="password">
-    <br /><br />
-    <button (click)="loginUser()">submit</button>
-</div>
+<section class="login-call">
+    <h1>Welcome back to Cookr.</h1>
+    <p>Login to view and edit all of your recipes, or create a brand new one!</p>
+</section>
+
+<section class="login-container">
+    <mat-form-field>
+        <mat-label>E-mail</mat-label>
+        <input matInput type="email" [(ngModel)]="email">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" [(ngModel)]="password">
+    </mat-form-field>
+    <button mat-raised-button (click)="loginUser()">submit</button>
+</section>
+
+<section class="login-footer">
+    <p>Don't have an account? <a href="./signup">Sign up!</a></p>
+</section>

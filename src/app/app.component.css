@@ -1,37 +1,42 @@
 mat-toolbar {
     display: flex;
     justify-content: space-between;
-    background-color: #A34343;
-    color: white;
+    background-color: #F0CF90;
+    color: black;
+    height: 75px;
 }
 
 a {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 button {
-    margin-left: 10px;
+    margin-right: 10px;
 }
 
-.callSection {
-    width: 100%;
+.logo {
+    height: 65px;
+    margin-top: 10px;
+}
 
-    div {
-        display: flex;
-        flex-direction: column;
-        width: 40%;
-        justify-content: center;
-        align-items: center;
-        margin: 50px auto;
+.body-buttons {
+    display: none;
+}
+
+@media all and (max-width: 1667px) {
+    .header-buttons {
+        display: none;
     }
 
-    h1 {
-        font-size: 48px;
-    }
+    .body-buttons {
+        display: inline;
 
-    p {
-        font-size: 16px;
-        text-align: center;
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
     }
 }

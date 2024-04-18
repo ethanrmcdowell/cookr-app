@@ -1,0 +1,48 @@
+.call-section {
+    width: 100%;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        justify-content: center;
+        align-items: center;
+        margin: 50px auto;
+    }
+
+    h1 {
+        font-size: 48px;
+        line-height: 50px;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+button {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.body-buttons {
+    display: none;
+}
+
+@media all and (max-width: 1667px) {
+    .header-buttons {
+        display: none;
+    }
+
+    .body-buttons {
+        display: inline;
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+    }
+}
