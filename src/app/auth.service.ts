@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getAuth, signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword } from '@angular/fire/auth';
+import { getAuth, signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword, sendPasswordResetEmail } from '@angular/fire/auth';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -54,6 +54,16 @@ export class AuthService {
     .catch((error) => {
       this.userAuthenticatedSubject.next(true);
       callback({success: false, message: error});
+    })
+  }
+
+  async passwordReset(email: string, callback: (response: { success: boolean, message?: string }) => void) {
+    sendPasswordResetEmail(this.auth, email)
+    .then(() => {
+      callback({success: true});
+    })
+    .catch((error) => {
+      callback({success: false, message: error})
     })
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, MatInputModule, MatFormFieldModule, MatButtonModule],
+  imports: [FormsModule, MatInputModule, MatFormFieldModule, MatButtonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
