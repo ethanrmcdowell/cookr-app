@@ -26,3 +26,10 @@ mat-form-field {
     align-items: center;
     margin: 30px auto;
 }
+
+.spinner-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+}

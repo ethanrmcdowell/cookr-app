@@ -1,6 +1,7 @@
 export interface Recipe {
     id: String,
-    steps: String[],
+    directions: String[],
     ingredients: String[],
-    user: String
+    user: String,
+    name: String,
 }

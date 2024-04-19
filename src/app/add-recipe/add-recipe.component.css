@@ -1,0 +1,14 @@
+.ingredient-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.direction-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.recipe-box {
+    padding: 50px;
+}

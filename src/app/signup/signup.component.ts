@@ -43,7 +43,7 @@ export class SignupComponent {
       let resMessage = response.message;
       console.log(resMessage);
       if (response.success) {
-        console.log('Success!');
+        this.router.navigate(['./user/' + response.id]);;
       } else {
         if (resMessage === 'auth/email-already-in-use') {
           this.snackBarError('E-mail address already in use!');

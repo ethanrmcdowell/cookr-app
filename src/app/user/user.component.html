@@ -1,3 +1,23 @@
 <div style="padding: 20px;">
-    <button (click)="getRecipes()">Get recipes for this user</button>
+    <button mat-raised-button (click)="addRecipe()">Add Recipe</button>
 </div>
+
+<mat-grid-list cols="3" rowHeight="2:1">
+    @for (item of recipes; track item.id) {
+        <mat-grid-tile>
+            <div class="recipe-box">
+                <h1>{{item.name}}</h1>
+                <ul>
+                    @for (ingredient of item.ingredients; track ingredient) {
+                        <li>{{ingredient}}</li>
+                    }
+                </ul>
+                <ol>
+                    @for (direction of item.directions; track direction) {
+                        <li>{{direction}}</li>
+                    }
+                </ol>
+            </div>
+        </mat-grid-tile>
+    }
+</mat-grid-list>
