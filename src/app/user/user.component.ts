@@ -50,11 +50,13 @@ export class UserComponent {
     const dialogRef = this.dialog.open(AddRecipeComponent, {
       width: '60%',
       height: '75%',
+      disableClose: true,
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log("Dialog closed.");
-      this.getRecipes();
+      if (result.success) {
+        this.getRecipes();
+      }
     })
   }
 

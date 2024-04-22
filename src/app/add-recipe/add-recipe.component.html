@@ -7,7 +7,7 @@
         @if (ingredients.length > 0) {
             <ul>
                 @for (item of ingredients; track item) {
-                    <li>{{item}}</li>
+                    <li>{{item}} <mat-icon class="remove-icon" (click)="deleteFromArray('ingredient', $index)">remove_circle_outline</mat-icon></li>
                 }
             </ul>
         }
@@ -21,7 +21,7 @@
         @if (directions.length > 0) {
             <ul>
                 @for (item of directions; track item) {
-                    <li>{{item}}</li>
+                    <li>{{item}} <mat-icon class="remove-icon" (click)="deleteFromArray('direction', $index)">remove_circle_outline</mat-icon></li>
                 }
             </ul>
         }
@@ -33,5 +33,6 @@
     </div>
 </div>
 <div class="button-box">
-    <button mat-raised-button>Save Recipe</button>
+    <button mat-raised-button (click)="addRecipe()">Save Recipe</button>
+    <button mat-raised-button (click)="closeDialog()">Close</button>
 </div>

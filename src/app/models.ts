@@ -1,5 +1,5 @@
 export interface Recipe {
-    id: String,
+    id?: String,
     directions: String[],
     ingredients: String[],
     user: String,

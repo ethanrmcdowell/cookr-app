@@ -16,4 +16,13 @@
 .button-box {
     display: flex;
     margin: auto;
+
+    button {
+        margin: 0 10px 0 10px;
+    }
+}
+
+.remove-icon {
+    margin-left: 10px;
+    margin-top: 5px;
 }
