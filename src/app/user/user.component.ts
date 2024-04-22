@@ -7,22 +7,33 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { AddRecipeComponent } from '../add-recipe/add-recipe.component';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [MatButtonModule, MatGridListModule, MatCardModule],
+  imports: [MatButtonModule, MatGridListModule, MatCardModule, MatSidenavModule, MatIconModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  constructor(private route: ActivatedRoute, private dataService: DataService, public dialog: MatDialog) {}
+  constructor(private route: ActivatedRoute, private dataService: DataService, public dialog: MatDialog, private authService: AuthService) {
+    this.authService.userData$.subscribe(userData => {
+      this.user = userData;
+      if (this.userId === this.user.uid) this.userAdmin = true;
+    })
+  }
 
-  userId: any;
+  userId: any = this.route.snapshot.paramMap.get('id');
+  user: any;
+  userAdmin: boolean = false;
   recipes: Recipe[] = [];
+  showSidenav: boolean = true;
+  selectedRecipe: any;
 
   ngOnInit() {
-    this.userId = this.route.snapshot.paramMap.get('id');
     this.getRecipes();
   }
 
@@ -32,6 +43,7 @@ export class UserComponent {
     this.recipes = await this.dataService.getUserRecipes(this.userId);
 
     console.log("recipes", this.recipes);
+    if (this.recipes.length > 0) this.selectedRecipe = this.recipes[0];
   }
 
   addRecipe() {
@@ -44,5 +56,13 @@ export class UserComponent {
       console.log("Dialog closed.");
       this.getRecipes();
     })
+  }
+
+  selectRecipe(recipe: any) {
+    this.selectedRecipe = recipe;
+  }
+
+  sidenavToggle() {
+    this.showSidenav = !this.showSidenav;
   }
 }

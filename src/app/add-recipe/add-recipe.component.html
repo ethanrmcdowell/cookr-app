@@ -1,13 +1,15 @@
 <div class="recipe-box">
     <div class="ingredient-box">
+        <mat-form-field>
+            <mat-label>Recipe Name</mat-label>
+            <input matInput [(ngModel)]="name">
+        </mat-form-field>
         @if (ingredients.length > 0) {
-            <mat-form-field>
-                <ul>
-                    @for (item of ingredients; track item) {
-                        <li>{{item}}</li>
-                    }
-                </ul>
-            </mat-form-field>
+            <ul>
+                @for (item of ingredients; track item) {
+                    <li>{{item}}</li>
+                }
+            </ul>
         }
         <mat-form-field>
             <mat-label>Ingredients</mat-label>
@@ -17,13 +19,11 @@
     </div>
     <div class="direction-box">
         @if (directions.length > 0) {
-            <mat-form-field>
-                <ul>
-                    @for (item of directions; track item) {
-                        <li>{{item}}</li>
-                    }
-                </ul>
-            </mat-form-field>
+            <ul>
+                @for (item of directions; track item) {
+                    <li>{{item}}</li>
+                }
+            </ul>
         }
         <mat-form-field>
             <mat-label>Direction</mat-label>
@@ -31,4 +31,7 @@
         </mat-form-field>
         <button mat-raised-button (click)="addDirection()">Add</button>
     </div>
+</div>
+<div class="button-box">
+    <button mat-raised-button>Save Recipe</button>
 </div>

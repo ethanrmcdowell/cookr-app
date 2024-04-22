@@ -1,8 +1,10 @@
-<div style="padding: 20px;">
-    <button mat-raised-button (click)="addRecipe()">Add Recipe</button>
+<!-- <div style="padding: 20px;">
+    @if (this.userAdmin) {
+        <button mat-raised-button (click)="addRecipe()">Add Recipe</button>
+    }
 </div>
 
-<mat-grid-list cols="3" rowHeight="2:1">
+<mat-grid-list cols="3">
     @for (item of recipes; track item.id) {
         <mat-grid-tile>
             <div class="recipe-box">
@@ -20,4 +22,33 @@
             </div>
         </mat-grid-tile>
     }
-</mat-grid-list>
+</mat-grid-list> -->
+
+<mat-sidenav-container>
+    <mat-sidenav mode="side" [fixedInViewport]="true" [fixedTopGap]="75" [opened]="showSidenav">
+        @if (this.userAdmin) {
+            <button mat-raised-button (click)="addRecipe()">Add Recipe</button>
+        }
+        @for (item of recipes;  track item.id) {
+            <h1 class="recipe-link" (click)="selectRecipe(item)">{{item.name}}</h1>
+        }
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-icon (click)="sidenavToggle()">{{showSidenav ? 'keyboard_double_arrow_left' : 'keyboard_double_arrow_right'}}</mat-icon>
+        @if (selectedRecipe) {
+            <div class="recipe-box">
+                <h1>{{selectedRecipe.name}}</h1>
+                <ul>
+                    @for (ingredient of selectedRecipe.ingredients; track ingredient) {
+                        <li>{{ingredient}}</li>
+                    }
+                </ul>
+                <ol>
+                    @for (direction of selectedRecipe.directions; track direction) {
+                        <li>{{direction}}</li>
+                    }
+                </ol>
+            </div>
+        }
+    </mat-sidenav-content>
+</mat-sidenav-container>

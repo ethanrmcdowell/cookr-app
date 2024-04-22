@@ -12,3 +12,8 @@
 .recipe-box {
     padding: 50px;
 }
+
+.button-box {
+    display: flex;
+    margin: auto;
+}

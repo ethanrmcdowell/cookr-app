@@ -1,5 +1,26 @@
 .recipe-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     width: 80%;
     padding: 20px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
+}
+
+mat-sidenav {
+    background-color: #F0CF90;
+    width: 20%;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+
+    button {
+        margin: 25px 0 25px 0;
+    }
+}
+
+.close-nav {
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
