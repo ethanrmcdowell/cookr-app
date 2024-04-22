@@ -1,19 +1,19 @@
 <mat-toolbar>
   <span>
     <a href="./">
-      <img class="logo" src="../assets/logo.PNG">
+      <img class="logo" src="../assets/logo2.PNG">
     </a>
   </span>
   <span></span>
   @if (!this.userAuthenticated) {
     <span class="header-buttons">
-      <button mat-raised-button (click)="loginButton()">Login</button>
-      <button mat-raised-button (click)="signUpButton()">Sign Up</button>
+      <button mat-flat-button color="primary" (click)="loginButton()">Login</button>
+      <button mat-flat-button color="accent" (click)="signUpButton()">Sign Up</button>
     </span>
   } @else {
     <span class="logged-in-buttons">
       <p class="user-profile" (click)="navUserProfile()">{{this.user.email}}</p>
-      <button mat-raised-button (click)="logoutUser()">Logout</button>
+      <button mat-flat-button color="primary" (click)="logoutUser()">Logout</button>
     </span>
   }
 </mat-toolbar>

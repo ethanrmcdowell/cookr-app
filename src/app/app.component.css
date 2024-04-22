@@ -1,9 +1,10 @@
 mat-toolbar {
     display: flex;
     justify-content: space-between;
-    background-color: #F0CF90;
+    background-color: white;
     color: black;
     height: 75px;
+    border-bottom: 2px solid black;
 }
 
 a {
@@ -37,7 +38,7 @@ button {
 .user-profile {
     cursor: pointer;
     &:hover {
-        color: #8B322C;
+        color: #4793AF;
     }
 }
 

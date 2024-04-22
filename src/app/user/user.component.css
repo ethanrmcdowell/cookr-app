@@ -8,19 +8,36 @@
 }
 
 mat-sidenav {
-    background-color: #F0CF90;
+    background-color: white;
     width: 20%;
     height: 100%;
     padding: 20px;
     text-align: center;
+    border-right: solid 2px black;
 
     button {
         margin: 25px 0 25px 0;
     }
 }
 
+mat-sidenav-content {
+    background-color: white;
+}
+
 .close-nav {
     position: absolute;
     top: 5px;
     right: 5px;
+}
+
+.edit-button {
+    float: right;
+    margin: 15px 15px 0 0;
+}
+
+.recipe-link {
+    cursor: pointer;
+    &:hover {
+        color: #4793AF;
+    }   
 }

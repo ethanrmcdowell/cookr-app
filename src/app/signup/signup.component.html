@@ -16,5 +16,5 @@
         <mat-label>Repeat Password</mat-label>
         <input matInput type="password" formControlName="password2">
     </mat-form-field>
-    <button mat-raised-button (click)="signupUser()" [disabled]="!this.newUserForm.valid">submit</button>
+    <button mat-flat-button color="primary" (click)="signupUser()" [disabled]="!this.newUserForm.valid">submit</button>
 </section>

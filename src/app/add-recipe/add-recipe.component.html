@@ -15,7 +15,7 @@
             <mat-label>Ingredients</mat-label>
             <input matInput [(ngModel)]="ingredient">
         </mat-form-field>
-        <button mat-raised-button (click)="addIngredient()">Add</button>
+        <button mat-flat-button color="primary" class="add-button" (click)="addIngredient()">Add</button>
     </div>
     <div class="direction-box">
         @if (directions.length > 0) {
@@ -29,10 +29,10 @@
             <mat-label>Direction</mat-label>
             <input matInput [(ngModel)]="direction">
         </mat-form-field>
-        <button mat-raised-button (click)="addDirection()">Add</button>
+        <button mat-flat-button color="primary" class="add-button" (click)="addDirection()">Add</button>
     </div>
 </div>
 <div class="button-box">
-    <button mat-raised-button (click)="addRecipe()">Save Recipe</button>
-    <button mat-raised-button (click)="closeDialog()">Close</button>
+    <button mat-flat-button color="primary" (click)="addRecipe()">Save Recipe</button>
+    <button mat-flat-button color="warn" (click)="closeDialog()">Close</button>
 </div>
