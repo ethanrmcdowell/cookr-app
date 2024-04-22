@@ -1,0 +1,15 @@
+@if (recipeData) {
+    <div class="recipe-box">
+        <h1>{{recipeData.name}}</h1>
+        <ul>
+            @for (ingredient of recipeData.ingredients; track ingredient) {
+                <li>{{ingredient}}</li>
+            }
+        </ul>
+        <ol>
+            @for (direction of recipeData.directions; track direction) {
+                <li>{{direction}}</li>
+            }
+        </ol>
+    </div>
+}

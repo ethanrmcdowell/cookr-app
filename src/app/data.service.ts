@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collection, getDocs, query, where } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, doc, getDoc, getDocs, query, where } from '@angular/fire/firestore';
 import { Recipe } from './models';
 
 @Injectable({
@@ -21,6 +21,13 @@ export class DataService {
     });
 
     return directoryArray;
+  }
+
+  async getSingleRecipe(recipeId: string) {
+    const recipeRef = doc(this.firestore, 'recipes', recipeId);
+    const querySnapshot = await getDoc(recipeRef);
+
+    return querySnapshot.data();
   }
 
   async addRecipe(recipe: Recipe) {

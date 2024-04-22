@@ -37,7 +37,7 @@ export class AuthService {
 
   async signupUser(email: string, password: string, callback: (response: { success: boolean, message: string, id: string}) => void) {
     createUserWithEmailAndPassword(this.auth, email, password)
-    .then((userCredential) => {
+    .then(async (userCredential) => {
       callback({ success: true, message: userCredential.toString(), id: userCredential.user.uid });
     })
     .catch((error) => {
