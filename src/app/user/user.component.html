@@ -13,7 +13,7 @@
             <button mat-flat-button color="primary" class="edit-button">Edit Recipe</button>
         }
         @if (selectedRecipe) {
-            <button mat-flat-button class="edit-button" color="primary">Share Recipe</button>
+            <button mat-flat-button (click)="shareRecipe()" class="edit-button" color="primary">Share Recipe</button>
         }
         @if (selectedRecipe) {
             <div class="recipe-box">

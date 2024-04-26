@@ -9,7 +9,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddRecipeComponent } from '../add-recipe/add-recipe.component';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
+import { Clipboard } from '@angular/cdk/clipboard';
 import { AuthService } from '../auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-user',
@@ -19,7 +21,7 @@ import { AuthService } from '../auth.service';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  constructor(private route: ActivatedRoute, private dataService: DataService, public dialog: MatDialog, private authService: AuthService) {
+  constructor(private snackBar: MatSnackBar, private clipboard: Clipboard, private route: ActivatedRoute, private dataService: DataService, public dialog: MatDialog, private authService: AuthService) {
     this.authService.userData$.subscribe(userData => {
       this.user = userData;
       if (this.userId === this.user.uid) this.userAdmin = true;
@@ -66,5 +68,13 @@ export class UserComponent {
 
   sidenavToggle() {
     this.showSidenav = !this.showSidenav;
+  }
+
+  shareRecipe() {
+    let shareUrl = "localhost:4200/recipe/" + this.selectedRecipe.id;
+    this.clipboard.copy(shareUrl);
+    this.snackBar.open("Recipe address copied to clipboard!", "Close", {
+      duration: 6000,
+    })
   }
 }
