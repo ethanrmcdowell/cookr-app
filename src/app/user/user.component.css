@@ -55,7 +55,7 @@ mat-sidenav-content {
     right: 5px;
 }
 
-@media all and (max-width: 1667px) {
+@media all and (max-width: 960px) {
     mat-sidenav {
         width: 80%;
     }

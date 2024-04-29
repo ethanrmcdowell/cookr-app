@@ -37,6 +37,8 @@ export class UserComponent {
 
   ngOnInit() {
     this.getRecipes();
+
+    console.log("width", window.screen.width);
   }
 
 
@@ -64,6 +66,9 @@ export class UserComponent {
 
   selectRecipe(recipe: any) {
     this.selectedRecipe = recipe;
+    if (window.screen.width < 960) {
+      this.sidenavToggle();
+    }
   }
 
   sidenavToggle() {

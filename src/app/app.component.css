@@ -46,7 +46,7 @@ button {
     display: none;
 }
 
-@media all and (max-width: 1667px) {
+@media all and (max-width: 960px) {
     .header-buttons {
         display: none;
     }
