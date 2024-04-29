@@ -10,6 +10,8 @@ A place to store and share all your delicious creations.
 
 This project was created as a way to share recipes between myself, family members, and friends. My cousin is a professional chef, so being able to record recipes that she has taught me has been incredibly valuable on my own cooking journey.
 
+View my recipes: https://cookr-app.web.app/user/KLUhc4XfZMPv4j0mAMpUSIszXts1
+
 [![Recipe Showcase Screenshot][recipe-screenshot-two]](https://cookr-app.web.app/)
 
 ## Features
