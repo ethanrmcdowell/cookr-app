@@ -1,27 +1,57 @@
-# CookrApp
+<a name="readme-top"></a>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
+[![MIT License][license-shield]][license-url]
 
-## Development server
+# Cookr
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+A place to store and share all your delicious creations.
 
-## Code scaffolding
+## About This Project
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This project was created as a way to share recipes between myself, family members, and friends. My cousin is a professional chef, so being able to record recipes that she has taught me has been incredibly valuable on my own cooking journey.
 
-## Build
+[![Recipe Showcase Screenshot][recipe-screenshot-two]](https://cookr-app.web.app/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Features
 
-## Running unit tests
+* Allows users to create a free account where all of their recipes can be found.
+* Lets users record recipes, including a name, ingredients, and steps.
+* Provides a link to share individual recipes, which will direct other users back to their profile if they're interested in viewing more.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+[![Recipe Creation Screenshot][recipe-screenshot-one]](https://cookr-app.web.app/)
 
-## Running end-to-end tests
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Technologies
 
-## Further help
+[![Angular][Angular.io]][Angular-url]
+[![Firebase][Firebase-icon]][Firebase-url]
+[![Angular Material UI][Material-icon]][Material-url]
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Contact
+
+Ethan McDowell - ethan.r.mcdowell@gmail.com
+
+Live Project: https://cookr-app.web.app/
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[recipe-screenshot-one]: ./src/assets/cookr1.PNG
+[recipe-screenshot-two]: ./src/assets/cookr2.PNG
+[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
+[Angular-url]: https://angular.io/
+[Firebase-icon]: https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black
+[Firebase-url]: https://firebase.google.com/
+[Material-icon]: https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white
+[Material-url]: https://material.angular.io/
