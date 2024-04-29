@@ -1,9 +1,13 @@
 <section class="signup-call">
-    <h1>Welcome back to Cookr.</h1>
-    <p>Login to view and edit all of your recipes, or create a brand new one!</p>
+    <h1>Welcome to Cookr.</h1>
+    <p>Register for a free account to begin sharing your delicious brilliance!</p>
 </section>
 
 <section class="signup-container" [formGroup]="newUserForm">
+    <mat-form-field>
+        <mat-label>Display Name</mat-label>
+        <input matInput type="text" formControlName="displayName">
+    </mat-form-field>
     <mat-form-field>
         <mat-label>E-mail</mat-label>
         <input matInput type="email" formControlName="email">

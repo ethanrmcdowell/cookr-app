@@ -4,4 +4,5 @@ export interface Recipe {
     ingredients: String[],
     user: String,
     name: String,
+    displayName: String,
 }

@@ -77,4 +77,8 @@ export class UserComponent {
       duration: 6000,
     })
   }
+
+  editRecipe() {
+    console.log("In progress...");
+  }
 }

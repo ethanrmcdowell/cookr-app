@@ -18,12 +18,14 @@ export class SignupComponent {
   constructor(private authService: AuthService, private router: Router, private snackBar: MatSnackBar) {}
 
   newUserForm = new FormGroup({
+    displayName: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(8)]),
     password2: new FormControl('', [Validators.required, Validators.minLength(8)]),
   });
 
   async signupUser() {
+    let display: string = this.newUserForm.get("displayName")?.value ?? '';
     let email: string = this.newUserForm.get("email")?.value ?? '';
     let pass: string = this.newUserForm.get("password")?.value ?? '';
     let pass2: string = this.newUserForm.get("password2")?.value ?? '';
@@ -37,9 +39,12 @@ export class SignupComponent {
     } else if (!this.newUserForm.controls.password.valid) {
       this.snackBarError('Password must be at least 8 characters long!');
       return;
+    } else if (!this.newUserForm.controls.displayName.valid) {
+      this.snackBarError('Please enter a valid display name.');
+      return;
     }
 
-    await this.authService.signupUser(email, pass, async (response) => {
+    await this.authService.signupUser(email, pass, display, async (response) => {
       let resMessage = response.message;
       console.log(resMessage);
       if (response.success) {

@@ -19,11 +19,11 @@ import { MatIconModule } from '@angular/material/icon';
 export class AddRecipeComponent {
   constructor(private dataService: DataService, private authService: AuthService, private dialogRef: MatDialogRef<AddRecipeComponent>) {
     this.authService.userData$.subscribe(userData => {
-      this.userId = userData.uid;
+      this.userInfo = userData;
     });
   }
   
-  userId: any;
+  userInfo: any;
   ingredients: string[] = [];
   ingredient: string = "";
   directions: string[] = [];
@@ -31,7 +31,7 @@ export class AddRecipeComponent {
   name: string = "";
 
   ngOnInit() {
-    console.log("dialog - user:", this.userId);
+    console.log("dialog - user:", this.userInfo);
   }
 
   addIngredient() {
@@ -49,7 +49,8 @@ export class AddRecipeComponent {
       directions: this.directions,
       ingredients: this.ingredients,
       name: this.name,
-      user: this.userId,
+      user: this.userInfo.uid,
+      displayName: this.userInfo.displayName,
     }
 
     this.dataService.addRecipe(newRecipe).then(() => {

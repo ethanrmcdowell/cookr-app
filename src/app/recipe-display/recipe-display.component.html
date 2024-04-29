@@ -1,6 +1,7 @@
 @if (recipeData) {
     <div class="recipe-box">
         <h1>{{recipeData.name}}</h1>
+        <p class="user-link">by <a href="./user/{{recipeData.user}}">{{recipeData.displayName}}</a></p>
         <ul>
             @for (ingredient of recipeData.ingredients; track ingredient) {
                 <li>{{ingredient}}</li>

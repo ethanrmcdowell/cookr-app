@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getAuth, signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword, sendPasswordResetEmail } from '@angular/fire/auth';
+import { getAuth, User, signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword, sendPasswordResetEmail, updateProfile } from '@angular/fire/auth';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -35,14 +35,25 @@ export class AuthService {
     });
   }
 
-  async signupUser(email: string, password: string, callback: (response: { success: boolean, message: string, id: string}) => void) {
+  async signupUser(email: string, password: string, displayName: string, callback: (response: { success: boolean, message: string, id: string}) => void) {
     createUserWithEmailAndPassword(this.auth, email, password)
     .then(async (userCredential) => {
-      callback({ success: true, message: userCredential.toString(), id: userCredential.user.uid });
+      await this.updateDisplayName(userCredential, displayName)
+      .then(() => {
+        callback({ success: true, message: userCredential.toString(), id: userCredential.user.uid });
+      });
     })
     .catch((error) => {
       callback({ success: false, message: error.code, id: 'NA' });
     });
+  }
+
+  async updateDisplayName(userCredential: any, displayName: string) {
+    return updateProfile(userCredential.user, {
+      displayName: displayName,
+    }).catch(error => {
+      console.error(error);
+    })
   }
 
   async logoutUser(callback: (response: { success: boolean, message?: string }) => void) {

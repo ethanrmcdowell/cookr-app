@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { Recipe } from '../models';
 
@@ -11,7 +11,7 @@ import { Recipe } from '../models';
   styleUrl: './recipe-display.component.css'
 })
 export class RecipeDisplayComponent {
-  constructor(private route: ActivatedRoute, private dataService: DataService) {}
+  constructor(private route: ActivatedRoute, private dataService: DataService, private router: Router) {}
 
   recipeId: any = this.route.snapshot.paramMap.get('id');
   recipeData: any;
@@ -22,5 +22,9 @@ export class RecipeDisplayComponent {
       console.log("recipe", result);
       this.recipeData = result;
     });
+  }
+
+  navUserProfile() {
+    this.router.navigate(['./user/' + this.recipeData.user])
   }
 }
