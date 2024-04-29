@@ -7,6 +7,13 @@
     /* border: 2px solid black; */
 }
 
+.recipe-card {
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    background-color: #EEF5FF;
+}
+
 mat-sidenav {
     background-color: white;
     width: 20%;
@@ -40,4 +47,31 @@ mat-sidenav-content {
     &:hover {
         color: #4793AF;
     }   
+}
+
+.left-toggle {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+@media all and (max-width: 1667px) {
+    mat-sidenav {
+        width: 80%;
+    }
+
+    .recipe-card {
+        width: 95%;
+    }
+
+    .left-toggle {
+        transform: scale(2);
+        top: 10px;
+        right: 10px;
+    }
+
+    .right-toggle {
+        transform: scale(2);
+        margin: 10px 0 0 10px;
+    }
 }

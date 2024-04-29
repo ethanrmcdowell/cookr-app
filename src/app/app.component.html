@@ -12,7 +12,7 @@
     </span>
   } @else {
     <span class="logged-in-buttons">
-      <p class="user-profile" (click)="navUserProfile()">{{this.user.email}}</p>
+      <p class="user-profile" (click)="navUserProfile()">{{this.user.displayName}}</p>
       <button mat-flat-button color="primary" (click)="logoutUser()">Logout</button>
     </span>
   }

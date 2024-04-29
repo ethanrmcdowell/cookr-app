@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { Recipe } from '../models';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-recipe-display',
   standalone: true,
-  imports: [],
+  imports: [MatCardModule],
   templateUrl: './recipe-display.component.html',
   styleUrl: './recipe-display.component.css'
 })

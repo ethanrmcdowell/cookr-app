@@ -51,7 +51,7 @@ button {
         display: none;
     }
 
-    .logged-in-buttons {
+    .logged-in-buttons button {
         display: none;
     }
 

@@ -71,6 +71,7 @@ export class UserComponent {
   }
 
   shareRecipe() {
+    // let shareUrl = "https://cookr-app.web.app/recipe/" + this.selectedRecipe.id;
     let shareUrl = "localhost:4200/recipe/" + this.selectedRecipe.id;
     this.clipboard.copy(shareUrl);
     this.snackBar.open("Recipe address copied to clipboard!", "Close", {

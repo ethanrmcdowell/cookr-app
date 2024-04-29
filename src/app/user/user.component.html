@@ -1,5 +1,6 @@
-<mat-sidenav-container>
-    <mat-sidenav mode="side" [fixedInViewport]="true" [fixedTopGap]="75" [opened]="showSidenav">
+<mat-sidenav-container [hasBackdrop]="false">
+    <mat-sidenav mode="over" [fixedInViewport]="true" [fixedTopGap]="75" [opened]="showSidenav">
+        <mat-icon (click)="sidenavToggle()" class="left-toggle">keyboard_double_arrow_left</mat-icon>
         @if (this.userAdmin) {
             <button mat-flat-button color="warn" (click)="addRecipe()">Add Recipe</button>
         }
@@ -8,7 +9,7 @@
         }
     </mat-sidenav>
     <mat-sidenav-content>
-        <mat-icon (click)="sidenavToggle()">{{showSidenav ? 'keyboard_double_arrow_left' : 'keyboard_double_arrow_right'}}</mat-icon>
+        <mat-icon (click)="sidenavToggle()" class="right-toggle">keyboard_double_arrow_right</mat-icon>
         @if (this.userAdmin && selectedRecipe) {
             <button mat-flat-button (click)="editRecipe()" color="primary" class="edit-button">Edit Recipe</button>
         }
@@ -16,19 +17,21 @@
             <button mat-flat-button (click)="shareRecipe()" class="edit-button" color="primary">Share Recipe</button>
         }
         @if (selectedRecipe) {
-            <div class="recipe-box">
-                <h1>{{selectedRecipe.name}}</h1>
-                <ul>
-                    @for (ingredient of selectedRecipe.ingredients; track ingredient) {
-                        <li>{{ingredient}}</li>
-                    }
-                </ul>
-                <ol>
-                    @for (direction of selectedRecipe.directions; track direction) {
-                        <li>{{direction}}</li>
-                    }
-                </ol>
-            </div>
+            <mat-card class="recipe-card">
+                <div class="recipe-box">
+                    <h1>{{selectedRecipe.name}}</h1>
+                    <ul>
+                        @for (ingredient of selectedRecipe.ingredients; track ingredient) {
+                            <li>{{ingredient}}</li>
+                        }
+                    </ul>
+                    <ol>
+                        @for (direction of selectedRecipe.directions; track direction) {
+                            <li>{{direction}}</li>
+                        }
+                    </ol>
+                </div>
+            </mat-card>
         }
     </mat-sidenav-content>
 </mat-sidenav-container>
