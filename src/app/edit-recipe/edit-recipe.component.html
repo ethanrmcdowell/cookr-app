@@ -2,11 +2,11 @@
     <div class="ingredient-box">
         <mat-form-field>
             <mat-label>Recipe Name</mat-label>
-            <input matInput [(ngModel)]="name">
+            <input matInput [(ngModel)]="selectedRecipe['name']">
         </mat-form-field>
-        @if (ingredients.length > 0) {
+        @if (selectedRecipe['ingredients'].length > 0) {
             <ul>
-                @for (item of ingredients; track item) {
+                @for (item of selectedRecipe['ingredients']; track item) {
                     <li>{{item}} <mat-icon class="remove-icon" (click)="deleteFromArray('ingredient', $index)">remove_circle_outline</mat-icon></li>
                 }
             </ul>
@@ -18,9 +18,9 @@
         <button mat-flat-button color="primary" class="add-button" (click)="addIngredient()">Add</button>
     </div>
     <div class="direction-box">
-        @if (directions.length > 0) {
+        @if (selectedRecipe['directions'].length > 0) {
             <ul>
-                @for (item of directions; track item) {
+                @for (item of selectedRecipe['directions']; track item) {
                     <li>{{item}} <mat-icon class="remove-icon" (click)="deleteFromArray('direction', $index)">remove_circle_outline</mat-icon></li>
                 }
             </ul>
@@ -33,6 +33,6 @@
     </div>
 </div>
 <div class="button-box">
-    <button mat-flat-button color="primary" (click)="addRecipe()">Save Recipe</button>
+    <button mat-flat-button color="primary" (click)="saveRecipe()">Save Recipe</button>
     <button mat-flat-button color="warn" (click)="closeDialog()">Close</button>
 </div>

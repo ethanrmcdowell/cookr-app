@@ -30,6 +30,11 @@ button {
     display: none;
 }
 
+.user-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
 @media all and (max-width: 1667px) {
     .header-buttons {
         display: none;

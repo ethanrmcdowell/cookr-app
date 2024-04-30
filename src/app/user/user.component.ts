@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { AuthService } from '../auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { EditRecipeComponent } from '../edit-recipe/edit-recipe.component';
 
 @Component({
   selector: 'app-user',
@@ -52,9 +53,24 @@ export class UserComponent {
 
   addRecipe() {
     const dialogRef = this.dialog.open(AddRecipeComponent, {
-      width: '60%',
+      width: window.screen.width < 960 ? '90%' : '60%',
       height: '75%',
       disableClose: true,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.success) {
+        this.getRecipes();
+      }
+    })
+  }
+  
+  editRecipe() {
+    const dialogRef = this.dialog.open(EditRecipeComponent, {
+      width: window.screen.width < 960 ? '90%' : '60%',
+      height: '75%',
+      disableClose: true,
+      data: this.selectedRecipe,
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -82,9 +98,5 @@ export class UserComponent {
     this.snackBar.open("Recipe address copied to clipboard!", "Close", {
       duration: 6000,
     })
-  }
-
-  editRecipe() {
-    console.log("In progress...");
   }
 }

@@ -8,7 +8,14 @@
   
   <section class="body-buttons">
     <div>
-      <button mat-raised-button (click)="loginButton()">Login</button>
-      <button mat-raised-button (click)="signUpButton()">Sign Up</button>
+      @if (!userAuthenticated) {
+        <button mat-raised-button (click)="loginButton()">Login</button>
+        <button mat-raised-button (click)="signUpButton()">Sign Up</button>
+      } @else {
+        <div class="user-buttons">
+          <p>Hello, {{user.displayName}}</p>
+          <button mat-raised-button (click)="logoutUser()">Log Out</button>
+        </div>
+      }
     </div>
   </section>
