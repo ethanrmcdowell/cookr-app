@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collection, doc, getDoc, getDocs, query, where } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, doc, getDoc, getDocs, query, updateDoc, where } from '@angular/fire/firestore';
 import { Recipe } from './models';
 
 @Injectable({
@@ -33,6 +33,15 @@ export class DataService {
   async addRecipe(recipe: Recipe) {
     const collectionInstance: any = collection(this.firestore, 'recipes');
     await addDoc(collectionInstance, recipe).then(() => {
+      return;
+    }).catch(error => {
+      console.error(error);
+    })
+  }
+
+  async editRecipe(recipe: Recipe, id: any) {
+    const documentInstance: any = doc(this.firestore, 'recipes', id);
+    await updateDoc(documentInstance, recipe).then(() => {
       return;
     }).catch(error => {
       console.error(error);

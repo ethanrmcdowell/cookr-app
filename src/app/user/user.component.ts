@@ -66,17 +66,16 @@ export class UserComponent {
   }
   
   editRecipe() {
+    const editData = Object.assign({}, this.selectedRecipe);
     const dialogRef = this.dialog.open(EditRecipeComponent, {
       width: window.screen.width < 960 ? '90%' : '60%',
       height: '75%',
       disableClose: true,
-      data: this.selectedRecipe,
+      data: editData,
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result.success) {
-        this.getRecipes();
-      }
+      this.getRecipes();
     })
   }
 
@@ -92,9 +91,13 @@ export class UserComponent {
   }
 
   shareRecipe() {
-    // let shareUrl = "https://cookr-app.web.app/recipe/" + this.selectedRecipe.id;
-    let shareUrl = "localhost:4200/recipe/" + this.selectedRecipe.id;
-    this.clipboard.copy(shareUrl);
+    let recipeUrl;
+    if (window.location.hostname === 'localhost') {
+      recipeUrl = "localhost:4200/recipe/" + this.selectedRecipe.id;
+    } else {
+      recipeUrl = "https://cookr-app.web.app/recipe/" + this.selectedRecipe.id;
+    }
+    this.clipboard.copy(recipeUrl);
     this.snackBar.open("Recipe address copied to clipboard!", "Close", {
       duration: 6000,
     })
