@@ -22,7 +22,7 @@ export class EditRecipeComponent {
 
   ingredient: string = "";
   direction: string = "";
-  selectedRecipe: any = this.data;
+  selectedRecipe: any = { ...this.data };
 
   addIngredient() {
     this.selectedRecipe['ingredients'].push(this.ingredient);

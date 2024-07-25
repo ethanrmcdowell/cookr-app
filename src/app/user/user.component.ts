@@ -75,7 +75,7 @@ export class UserComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getRecipes();
+      // this.getRecipes();
     })
   }
 

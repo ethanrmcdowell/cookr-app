@@ -23,15 +23,16 @@ export class DataService {
     return directoryArray;
   }
 
-  async getSingleRecipe(recipeId: string) {
+  async getSingleRecipe(recipeId: string): Promise<Recipe> {
     const recipeRef = doc(this.firestore, 'recipes', recipeId);
     const querySnapshot = await getDoc(recipeRef);
+    const singleRecipe: Recipe = querySnapshot.data() as Recipe;
 
-    return querySnapshot.data();
+    return singleRecipe;
   }
 
   async addRecipe(recipe: Recipe) {
-    const collectionInstance: any = collection(this.firestore, 'recipes');
+    const collectionInstance = collection(this.firestore, 'recipes');
     await addDoc(collectionInstance, recipe).then(() => {
       return;
     }).catch(error => {
